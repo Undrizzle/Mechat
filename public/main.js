@@ -25,10 +25,10 @@ $(function() {
     function addParticipantsMessage(data) {
         var message = '';
         if (data.numUsers === 1) {
-            message += "there's 1 participant";
+            message += "这里有1个成员";
         }
         else {
-            message += "there are " + data.numUsers + " participants";
+            message += "这里有" + data.numUsers + "成员";
         }
         log(message);
     }
@@ -202,7 +202,7 @@ $(function() {
     socket.on('login', function(data) {
         connected = true;
         //Display the welcome message
-        var message = "Welcome to Socket.IO chat -";
+        var message = "欢迎来到Undrizzle *^O^*";
         log(message, {
             prepend: true
         });
@@ -214,12 +214,12 @@ $(function() {
     });
     //Whenever the server emits 'user joined',log it in the chat body
     socket.on('user joined', function(data) {
-        log(data.username + ' joined');
+        log(data.username + '加入');
         addParticipantsMessage(data);
     });
     //Whenever the server emits 'user left', log it in the chat body
     socket.on('user left', function(data) {
-        log(data.username + ' left');
+        log(data.username + '离开');
         addParticipantsMessage(data);
         removeChatTyping(data);
     });

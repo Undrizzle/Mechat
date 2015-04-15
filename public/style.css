@@ -6,7 +6,7 @@
 
 html {
     font-weight: 300;
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;   /*将字体变得清晰*/
 }
 
 html, input {
@@ -28,7 +28,7 @@ html, body {
 
 ul {
     list-style: none;
-    word-wrap: break-word;
+    word-wrap: break-word;  /*自动换行*/
 }
 
 /* Pages */
@@ -78,7 +78,7 @@ ul {
 
 .login.page .usernameInput {
     font-size: 200%;
-    letter-spacing: 3px;
+    letter-spacing: 3px;       /*字母间距*/
 }
 
 .login.page .title, .login.page .usernameInput {
@@ -112,7 +112,7 @@ ul {
 /* Messages */
 
 .chatArea {
-    height: 100%;
+    height: 80%;
     padding-bottom: 60px;
 }
 
@@ -128,7 +128,7 @@ ul {
 }
 
 .username {
-    float: left;
+    margin-left: 100px;
     font-weight: 700;
     overflow: hidden;
     padding-right: 15px;
