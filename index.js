@@ -15,6 +15,14 @@ app.use(express.static(__dirname + '/public'));
 var usernames = {};
 var numUsers = 0;
 
+io.on('connection', function(socket) {
+    socket.on('chat message', function(msg) {
+        console.log('message: ' + msg);
+        io.emit('chat message', msg);
+    });
+});
+
+/*
 io.on('connection', function(socket){
     var addedUser = false;
     //when the client emits 'new mesage',this listens and executes
@@ -68,3 +76,4 @@ io.on('connection', function(socket){
         }
     });
 });
+*/

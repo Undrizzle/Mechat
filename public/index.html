@@ -33,12 +33,12 @@
                 </div>
             </div>
             <div id="wrap" class="wrap h280 flow">
-                <ul class="message"></ul>
+                <ul id="messages"></ul>
             </div>
             <div id="footer" class="footer h80">
                 <div class="footer-con">
                     <div class="text-layout">
-                        <textarea class="text" placeholder="请输入..."></textarea>
+                        <textarea class="text" placeholder="请输入..." id="m"></textarea>
                     </div>
                 </div>
                 <div class="ft-btns clearfix">
@@ -48,7 +48,7 @@
                     <a title="上传图片" class="ml5 pa">
                         <span class="glyphicon glyphicon-picture"></span>
                     </a>
-                    <input type="button" class="btn send-btn" value="发送">
+                    <input type="button" class="btn send-btn" value="发送" onclick="sendMsg()">
                 </div>
             </div>
         </div>
@@ -70,6 +70,15 @@
     -->
         <script src="/socket.io/socket.io.js"></script>
         <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-        <script src="/main.js"></script>
+        <script>
+            var socket = io();
+            function sendMsg() {
+                socket.emit('chat message',$('#m').val());
+                $('#m').val('');
+            }
+            socket.on('chat message', function(msg) {
+                $('#messages').append($('<li>').text(msg));
+            });
+        </script>
     </body>
 </html>
