@@ -148,3 +148,193 @@ ul {
     right: 0;
     width: 100%;
 }
+
+#mechat {
+    width: 300px;
+    margin-top: 100px;
+    margin-left: 500px;
+    border: 1px solid rgb(71, 193, 168);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.header {
+    background: rgb(71,193,168);
+}
+
+.fr {
+    float: right;
+}
+
+.h60 {
+    height: 60px;
+}
+
+.fl {
+    float: left;
+}
+
+.operator {
+    padding: 10px 0;
+    margin-left: 20px;
+    margin-right: 90px;
+}
+
+.head-md {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.ml50 {
+    margin-left: 50px;
+}
+
+.white {
+    color: #ffffff;
+}
+
+.h20 {
+    height: 20px;
+}
+
+.oper-name {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 24px;
+    z-index: 101;
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.f12 {
+    font-size: 12px;
+}
+
+.lh1 {
+    line-height: 1;
+}
+
+.login-name {
+    margin: 0 0 5px 0;
+    line-height: 1;
+}
+
+.w90 {
+    width: 90px;
+}
+
+.oper-btn {
+    display: inline-block;
+    padding: 12px 5px;
+    font-size: 13px;
+    color: #ffffff;
+    line-height: 2.8;
+}
+
+.oper-btn:hover {
+    color: #e2e2e2;
+    cursor: pointer;
+}
+
+.tr {
+    text-align: right;
+}
+
+.wrap {
+    height: auto;
+    width: 100%;
+    top: 60px;
+    bottom: 80px;
+    _position: relative;
+    _top: -10px;
+    _height: 100%;
+}
+
+.h280 {
+    height: 280px;
+}
+
+.flow {
+    color: #333;
+}
+
+.footer {
+    bottom: 0;
+    background: #fff;
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.05);
+    z-index: 120;
+}
+
+.h80 {
+    height: 80px;
+}
+
+.footer-con {
+    border-top: 1px solid #d9d9d9;
+}
+
+.text-layout {
+    margin: 0 10px;
+    height: 40px;
+}
+
+.text {
+    width: 100%;
+    height: 40px;
+    margin: 5px 0 0;
+    padding: 0;
+    border: 0;
+    color: #333;
+    resize: none;
+    font-size: 14px;
+}
+
+.text:hover {
+    outline: none;
+}
+
+.text:focus {
+    outline: none;
+}
+
+.ft-btns {
+    position: relative;
+    height: 40px;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.ft-btns a {
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.ml5 {
+    margin-left: 5px;
+}
+
+.send-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    cursor: pointer;
+    border: none;
+    width: 64px;
+    height: 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 0;
+    background: #1abc9c;
+    color: #ffffff;
+}
+
+.send-btn:hover {
+    color: #ffffff;
+    background: rgb(71, 193, 168);
+}

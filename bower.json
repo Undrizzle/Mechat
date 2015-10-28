@@ -1,0 +1,11 @@
+{
+  "name": "FrontChat",
+  "description": "my first socket.io app",
+  "version": "0.0.1",
+  "homepage": "https://undrizzle.com",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "flat-ui": "~2.2.2"
+  }
+}

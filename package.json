@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "my first socket.io app",
   "dependencies": {
+    "bower": "^1.6.5",
     "express": "^4.10.2",
     "socket.io": "^1.3.5"
   }

@@ -1,11 +1,58 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
     <head>
         <meta charset="UTF-8">
-        <title>FrontChat</title>
+        <title>在线客服</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div id="mechat">
+            <div id="header" class="header h60">
+                <div class="fr w90 tr">
+                    <a class="oper-btn" title="开/关 声音">
+                        <span class="glyphicon glyphicon-volume-up"></span>
+                    </a>
+                    <a class="oper-btn" title="最大化窗口">
+                        <span class="glyphicon glyphicon-resize-full"></span>
+                    </a>
+                    <a class="oper-btn" title="最小化窗口">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </a>
+                </div>
+                <div class="operator">
+                    <img src="img/avatar.png" class="head-md fl">
+                    <div class="ml50 white">
+                        <p class="h20 login-name">
+                            <span class="oper-name">
+                                <span class="white">不觉细雨</span>
+                            </span>
+                        </p>
+                        <p class="f12 h20 lh1">undrizzle</p>
+                    </div>
+                </div>
+            </div>
+            <div id="wrap" class="wrap h280 flow">
+                <ul class="message"></ul>
+            </div>
+            <div id="footer" class="footer h80">
+                <div class="footer-con">
+                    <div class="text-layout">
+                        <textarea class="text" placeholder="请输入..."></textarea>
+                    </div>
+                </div>
+                <div class="ft-btns clearfix">
+                    <a title="表情" class="pa">
+                        <span class="glyphicon glyphicon-send"></span>
+                    </a>
+                    <a title="上传图片" class="ml5 pa">
+                        <span class="glyphicon glyphicon-picture"></span>
+                    </a>
+                    <input type="button" class="btn send-btn" value="发送">
+                </div>
+            </div>
+        </div>
+    <!--
         <ul class="pages">
             <li class="chat page">
                 <div class="chatArea">
@@ -20,7 +67,7 @@
                 </div>
             </li>
         </ul>
-
+    -->
         <script src="/socket.io/socket.io.js"></script>
         <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
         <script src="/main.js"></script>
