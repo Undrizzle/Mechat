@@ -1,0 +1,11 @@
+{
+  "name": "mechat",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "https://undrizzle.com",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "react": "~0.14.1"
+  }
+}
