@@ -1,0 +1,3 @@
+
+
+ChatBox = require('components/chatbox');

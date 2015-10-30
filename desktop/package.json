@@ -2,8 +2,15 @@
   "name": "mechat",
   "version": "0.0.1",
   "main": "main.js",
+  "author": "Burning",
+  "license": "MIT",
   "devDependencies": {
-    "electron-prebuilt": "^0.34.1"
+    "babel-core": "^5.8.33",
+    "babel-loader": "^5.3.3",
+    "css-loader": "^0.21.0",
+    "electron-prebuilt": "^0.34.1",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.12.2"
   },
   "dependencies": {
     "material-ui": "^0.13.0",

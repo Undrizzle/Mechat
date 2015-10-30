@@ -33,7 +33,23 @@
                 </div>
             </div>
             <div id="wrap" class="wrap h280 flow">
-                <ul id="messages"></ul>
+                <ul id="messages">
+                    <li>
+                        <p class="grey6 f12" title="2015-12-03 14:23">不觉细雨</p>
+                        <div class="msg ser-msg">
+                            <div class="bgSer msg-con">
+                                <i class="arrow-tl"></i>
+                                你好
+                            </div>
+                        </div>
+                    </li>
+                    <li class="msg cli-msg fr">
+                        <div class="bgCli msg-con fr">
+                            <i class="arrow-br"></i>
+                            你好
+                        </div>
+                    </li>
+                </ul>
             </div>
             <div id="footer" class="footer h80">
                 <div class="footer-con">
@@ -73,11 +89,17 @@
         <script>
             var socket = io();
             function sendMsg() {
-                socket.emit('chat message',$('#m').val());
-                $('#m').val('');
+                if($('#m').val() == '' || $('#m').val() == null) {
+                    return;
+                } else {
+                    socket.emit('chat message', $('#m').val());
+                    $('#m').val('');
+                }
             }
             socket.on('chat message', function(msg) {
-                $('#messages').append($('<li>').text(msg));
+                $('#messages').append(($('<li>').addClass('msg cli-msg fr').append(($('<div>').text(msg)).addClass('bgCli msg-con fr').prepend($('<i>').addClass('arrow-br')))));
+                $('#wrap').scrollTop( $('#wrap')[0].scrollHeight );
+                //($('<div>').text(msg)).addClass('bgCli msg-con fr').prepend($('<i>').addClass('arrow-br'))
             });
         </script>
     </body>

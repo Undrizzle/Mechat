@@ -252,6 +252,9 @@ ul {
     _position: relative;
     _top: -10px;
     _height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 .h280 {
@@ -334,7 +337,104 @@ ul {
     color: #ffffff;
 }
 
+.send-btn:focus {
+    color: #fff;
+}
+
+.send-btn:active {
+    color: #fff;
+}
+
 .send-btn:hover {
     color: #ffffff;
     background: rgb(71, 193, 168);
+}
+
+.btn:hover {
+    outline: none;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:active {
+    outline: none;
+}
+
+.flow li {
+    margin-bottom: 15px;
+}
+
+.flow p {
+    margin-bottom: 5px;
+}
+
+.flow ul {
+    padding: 15px;
+}
+
+.grey6 {
+    color: #666;
+}
+
+.flow .msg {
+    margin-top: 5px;
+    width: 80%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.flow .ser-msg {
+    margin-left: 10px;
+}
+
+.flow .ser-msg .msg-con {
+    border-top-left-radius: 0;
+}
+
+.flow .msg-con {
+    position: relative;
+    padding: 8px 10px;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.bgSer {
+    background: #d1f0ed;
+}
+
+.arrow-tl {
+    top: 0;
+    left: -10px;
+    border-left: 10px solid transparent;
+    border-top: 10px solid #d1f0ed;
+}
+
+.arrow-tl, .arrow-br {
+    position: absolute;
+    background: #fff;
+    height: 0;
+    width: 0;
+    font-size: 0;
+}
+
+.flow .cli-msg {
+    margin-right: 10px;
+}
+
+.flow .cli-msg .msg-con {
+    border-bottom-right-radius: 0;
+}
+
+.bgCli {
+    background: #f1effc;
+}
+
+.arrow-br {
+    bottom: 0;
+    right: -10px;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f1effc;
 }
