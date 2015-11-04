@@ -1,24 +1,62 @@
 doctype html
-html
+html(lang="zh")
     head
-        title= title
+        meta(charset='utf-8')
+        title= 在线客服
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         link(href='bower_components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet', media='screen')
+        link(href='css/style.css', rel='stylesheet')
     body
-    .container
-        h1 Say something meaningful here.
-        p.lead Say something worthwhile here.
-        a(href="/") Go home
-        br
-        a(href="/ping") Ping
-        br
-        br
-        if (!user)
-            a(href="/login") Login
-            br
-            a(href="/register") Register
-        if (user)
-            p You are currently logged in as #{user.username}
-            a(href="/logout") Logout
-    script(src='http://code.jquery.com/jquery.js')
-    script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
+        #mechat
+            #header
+                div(class=['header','h60'])
+                    div(class=['fr','w90','tr'])
+                        a(class='oper-btn' title='开/关 声音')
+                            span(class='glyphicon glyphicon-volume-up')
+                        a(class='oper-btn' title='最大化窗口')
+                            span(class='glyphicon glyphicon-resize-full')
+                        a(class='oper-btn' title='最小化窗口')
+                            span(class='glyphicon glyphicon-minus')
+                    .operator
+                        img(src='img/avatar.png' class=['head-md','fl'])
+                        div(class=['ml50','white'])
+                            p(class=['h20','login-name'])
+                                span.oper-name
+                                    span(class='white') 不觉细雨
+                            p(class=['f12','h20','lh1']) undrizzle
+            #wrap
+                div(class=['wrap','h280','flow'])
+                    ul#messages
+                        li
+                            p(class=['grey6 f12'] title='2015-12-03 14:23') 不觉细雨
+                            div(class=['msg ser-msg'])
+                                div(class=['bgSer','msg-con']) 你好
+                                    i(class='arrow-tl')
+            #footer
+                div(class=['footer','h80'])
+                    .footer-con
+                        .text-layout
+                            textarea(class='text' placeholder='请输入...' id='m')
+                    div(class=['ft-btns','clearfix'])
+                        a(class='pa' title='表情')
+                            span(class='glyphicon glyphicon-send')
+                        a(class=['ml5','pa'] title='上传图片')
+                            span(class='glyphicon glyphicon-picture')
+                        input(type='button' class='btn send-btn' value='发送' onclick='sendMsg()')
+    script(src='/socket.io/socket.io.js')
+    script(src='http://code.jquery.com/jquery-1.11.1.js')
+    script.
+        var socket = io();
+        function sendMsg() {
+            if($('#m').val() == '' || $('#m').val() == null) {
+                return;
+            } else {
+                socket.emit('chat message', $('#m').val());
+                $('#m').val('');
+            }
+        }
+        socket.on('chat message', function(msg) {
+        $('#messages').append(($('<li>').addClass('msg cli-msg fr').append(($('<div>').text(msg)).addClass('bgCli msg-con fr').prepend($('<i>').addClass('arrow-br')))));
+        $('.wrap').scrollTop( $('.wrap')[0].scrollHeight );
+            //($('<div>').text(msg)).addClass('bgCli msg-con fr').prepend($('<i>').addClass('arrow-br'))
+        });
