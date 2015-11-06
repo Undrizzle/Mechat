@@ -1,5 +1,6 @@
 var app = require('app');
 var BrowserWindow = require('browser-window');
+var path = require('path');
 
 require('crash-reporter').start();
 
@@ -13,9 +14,13 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
     mainWindow = new BrowserWindow({
-        width: 1050,
-        height: 595,
-        transparent: false
+        width: 300,
+        height: 600,
+        min_width: 260,
+        max_width: 550,
+        min_height: 600,
+        max_height: 900,
+        frame: false
     });
 
     mainWindow.loadUrl('file://' + __dirname + '/index.html');
