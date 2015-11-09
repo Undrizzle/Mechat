@@ -14,16 +14,16 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
     mainWindow = new BrowserWindow({
-        width: 300,
-        height: 600,
-        min_width: 260,
-        max_width: 550,
-        min_height: 600,
-        max_height: 900,
+        width: 700,
+        height: 510,
+        min_width: 700,
+        max_width: 700,
+        min_height: 510,
+        max_height: 5100,
         frame: false
     });
 
-    mainWindow.loadUrl('file://' + __dirname + '/index.html');
+    mainWindow.loadUrl('file://' + __dirname + '/message.html');
 
     mainWindow.openDevTools();
 
