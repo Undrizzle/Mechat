@@ -5,5 +5,8 @@
   "homepage": "https://undrizzle.com",
   "license": "MIT",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "flat-ui": "~2.2.2",
+    "jquery": "~2.2.0"
+  }
 }

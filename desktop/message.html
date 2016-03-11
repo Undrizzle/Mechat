@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>mechat</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link href="app/bower_components/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="app/css/app.css">
         <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
     </head>
@@ -37,9 +38,13 @@
                 </div>
                 <div class="endit">
                     <textarea id="content" name="content"></textarea>
-                    <button type="button">发送</button>
+                </div>
+                <div class="bts">
+                    <button class="btn btn-sm btn-primary">发送</button>
                 </div>
             </footer>
         </div>
+        <script type="text/javascript" src="app/bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="app/js/message.js"></script>
     </body>
 </html>

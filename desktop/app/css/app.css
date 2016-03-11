@@ -109,7 +109,7 @@ body{
 footer{
     width: 100%;
     padding-right: 160px;
-    height: 120px;
+    height: 200px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -125,7 +125,7 @@ footer{
 }
 
 .endit{
-    padding: 10px 110px 10px 10px;
+    padding: 10px 20px 10px 10px;
     position: relative;
 }
 .endit textarea{
@@ -135,27 +135,10 @@ footer{
     line-height: 22px;
     height: 70px;
     max-height: 70px;
-    box-shadow: inset 0 0 2px #818181;
-}
-.endit button{
-    width: 70px;
-    height: 70px;
-    cursor: pointer;
-    font-size: 16px;
-    background-color: #f7f7f7;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    box-shadow: 0 0 2px #818181;
-    -webkit-transition: all 0.5s;
-}
-.endit button:hover{
-    background-color: #E4E2E2;
 }
 
 .content .cont-left{
     width: 100%;
-    padding-right: 160px;
     height: 100%;
 }
 .content .message{
@@ -164,4 +147,9 @@ footer{
     padding: 10px 10px 100px 10px;
     background-color: #f6f6f6;
     overflow-y: scroll;
+}
+
+.bts {
+    float: right;
+    padding-right: 10px;
 }
