@@ -1,0 +1,269 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;   /*让字体变清晰*/
+    line-height: 1.6;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dd, fieldset, textarea {
+    margin: 0;
+}
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+fieldset, legend, textarea, input {
+    padding: 0;
+}
+input, textarea, button, a {
+    outline: none;
+}
+.main {
+    display: block;
+}
+.main_inner {
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.main_inner:after {    /*在元素后面插入新的内容*/
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.panel {
+    position: relative;
+    width: 280px;
+    height: 100%;
+    float: left;
+    background: #2e3238;
+}
+.header {
+    padding: 18px;
+    position: relative;
+}
+.header .avatar {
+    display: table-cell;  /*让元素以表格单元格的形式呈现*/
+    vertical-align: middle;
+    word-wrap: break-word;   /*在长单词或 URL 地址内部进行换行*/
+    word-break: break-all;   /*允许在单词内换行*/
+    white-space: nowrap;     /*文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止*/
+    padding-right: 10.625px;
+}
+.header .avatar .img {
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    display: block;
+    cursor: pointer;
+}
+.header .info {
+    display: table-cell;
+    vertical-align: middle;
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 2000px;
+}
+.header .info .nickname .display_name {
+    display: inline-block;
+    font-weight: 400;
+    width: 156px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+    font-size: 18px;
+    vertical-align: top;
+    line-height: 31px;
+    text-decoration: none;
+}
+.header .info .nickname .opt {
+    display: inline-block;
+    vertical-align: top;
+}
+.web_wechat_add {
+    background: url(../images/sprite28a2f7.png) 0 -406px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.search_bar {
+    position: relative;
+    width: 244px;
+    margin: 0 auto 6px;
+}
+.search_bar .web_wechat_search {
+    position: absolute;
+    z-index: 101;
+    top: 1px;
+}
+.web_wechat_search {
+    background: url(../images/sprite28a2f7.png) 0 -1946px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.search_bar .frm_search {
+    width: 214px;
+    height: 32px;
+    line-height: 32px;
+    border: 0;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    background-color: #26292e;
+    color: #fff;
+    padding-left: 30px;
+    font-size: 120x;
+}
+.tab {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 4px;
+}
+.tab:after {
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid #24272C;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.tab .tab_item {
+    float: left;
+    width: 33.33333333%;
+    position: relative;
+}
+.tab .tab_item:after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    right: 0;
+    width: 0;
+    height: 20px;
+    border-right: 1px solid #24272c;
+}
+.tab .tab_item a {
+    display: block;
+    text-align: center;
+}
+.web_wechat_tab_chat_h1 {
+    background: url(../images/sprite28a2f7.png) 0 -2083px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.web_wechat_tab_chat {
+    background: url(../images/sprite28a2f7.png) 0 -2048px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.web_wechat_tab_public {
+    background: url(../images/sprite28a2f7.png) 0 -2232px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.tab .tab_item .no_extra:after {
+    border-right: 0;
+}
+.web_wechat_tab_friends {
+    background: url(../images/sprite28a2f7.png) 0 -2140px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.nav_view {
+    position: absolute;
+    top: 154px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.chat_list {
+    height: 100%;
+}
+.scroll-wrapper {
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: relative;
+}
+.scroll-wrapper>.scroll-content {
+    border: 0 !important;
+    box-sizing: content-box; !important;
+    height: auto;
+    left: 0;
+    margin: 0;
+    max-height: none !important;
+    max-width: none !important;
+    overflow: scroll !important;
+    padding: 0;
+    position: relative; !important;
+    top: 0;
+    width: auto !important;
+}
+.chat_item {
+    overflow: hidden;
+    padding: 12px 18px 11px;
+    border-bottom: 1px solid #292c33;
+    cursor: pointer;
+    position: relative;
+}
+.chat_item.active {
+    background: #3a3f45;
+}
+.chat_item .ext {
+    float: right;
+    color: #6b6f7c;
+    font-size: 13px;
+    text-align: right;
+}
+.chat_item.active .ext {
+    color: #fff;
+}
+.chat_item .ext .attr {
+    height: 19px;
+    line-height: 1.5;
+}
+.chat_item .avatar {
+    float: left;
+    margin-right: 10px;
+    position: relative;
+}
+.chat_item .avatar .img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.chat_item .info {
+    overflow: hidden;
+}
+.chat_item .info .nickname {
+    font-weight: 400;
+    font-size: 13px;
+    color: #fff;
+    line-height: 20px;
+}
+.chat_item .info .nickname_text {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}

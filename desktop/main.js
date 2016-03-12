@@ -14,12 +14,10 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
     mainWindow = new BrowserWindow({
-        width: 700,
-        height: 700,
-        min_width: 700,
-        max_width: 700,
-        min_height: 510,
-        max_height: 5100,
+        width: 950,
+        height: 800,
+        min_width: 950,
+        min_height: 800,
         frame: false
     });
 
@@ -28,6 +26,7 @@ app.on('ready', function() {
     mainWindow.openDevTools();
 
     //关闭聊天窗口
+    /*
     mainWindow.on('closed', function() {
         mainWindow = null;
     });
@@ -35,5 +34,5 @@ app.on('ready', function() {
     ipc.on('close:mess', function(event, arg) {
         mainWindow.close();
         mainWindow = null;
-    });
+    }); */
 });
