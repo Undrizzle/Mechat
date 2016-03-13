@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" ng-app="mechat">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +46,7 @@
                                     <div class="top-placeholder" style="/*height: 0px;*/"></div>
                                     <!-- ngRepeat: chatContact in chatList track by chatContact.Username -->
                                     <div>
-                                        <div class="chat_item slide-left ng-scope active">
+                                        <div class="chat_item slide-left">
                                             <div class="ext">
                                                 <p class="attr"></p>
                                             </div>
@@ -85,7 +85,23 @@
                         </div>
                     </div>
                  </div>
+                <div ui-view="contentView" style="height: 100%;">
+                    <div id="chatArea" class="box chat">
+                        <div class="box_hd">
+                            <div id="chatRoomMembersWrap"></div>
+                            <div class="title_wrap">
+                                <div class="title poi">
+                                    <a class="title_name">大王叫我来巡山</a>
+                                    <i class="web_wechat_up_icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <script src="app/bower_components/angular/angular.js"></script>
+        <script src="app/bower_components/angular-route/angular-route.js"></script>
+        <script src="app/js/app.js"></script>
     </body>
 </html>
