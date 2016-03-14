@@ -1,11 +1,9 @@
-angular.module('mechat', ['ngRoute']).
-    config(['$routeProvider', function($routeProvider) {
-        $routeProvider
-            .when('/', {
-                templateUrl: '../../main.html',
-                controller: 'MainController'
-            })
-            .otherwise({
-                redirectTo: '/'
-            })
-}]);
+angular.module('mechat', ['ui.router']).
+    config(function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("../../main");
+        $stateProvider
+            .state('', {
+                url: "",
+                templateUrl: ""
+            });
+    });
