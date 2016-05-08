@@ -1,107 +1,66 @@
 <!DOCTYPE html>
-<html lang="zh-CN" ng-app="mechat">
+<html lang="zh-CN" ng-app="meChat">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>mechat</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <link rel="stylesheet" type="text/css" href="app/css/main.css">
-        <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" type="text/css" href="bower_components/angular-nice-bar/dist/css/angular-nice-bar.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <!--<script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script> -->
     </head>
     <body>
         <div class="main">
-            <div class="main_inner" ng-right-click="showContextMenu($event)">
+            <div class="main_inner">
                 <div class="panel">
                     <div class="header">
                         <div class="avatar">
-                            <img class="img" src="./app/images/140901061347622.jpg" mm-src="{{}}" ng-click="showProfile($event)" />
+                            <img class="img" src="images/140901061347622.jpg" mm-src="{{}}" ng-click="showProfile($event)" />
                         </div>
                         <div class="info">
                             <h3 class="nickname">
-                                <span ng-bind-html="account.NickName" class="display_name">不觉细雨</span>
-                                <a class="opt" href="javascript:;" ng-show="account.HeadImgUrl" ng-click="toggleSystemMenu()"><i class="web_wechat_add"></i></a>
+                                <span class="display_name">不觉细雨</span>
+                                <a class="opt" href="javascript:;"><i class="web_wechat_add"></i></a>
                             </h3>
                         </div>
                     </div>
                     <div class="search_bar" id="search_bar">
                         <i class="web_wechat_search"></i>
-                        <input mm-action-track track-type="['focus]" track-opt="{'target':'顶部搜索‘}" class="frm_search" type="text" ng-model="keyword"
+                        <input mm-action-track track-type="['focus']" track-opt="{'target':'顶部搜索'}" class="frm_search" type="text" ng-model="keyword"
                                ng-input="search($event)" ng-keydown="searchKeydowm($event)" ng-blur="focus = false;" placeholder="搜索" />
                     </div>
-                    <div class="tab" ng-class="{no_reader: !isShowReader}">
+                    <div class="tab">
                         <div class="tab_item">
                             <a class="chat" ui-sref="chat" ng-dblclick="dblclickChat()" title="聊天"><i class="web_wechat_tab_chat" ng-class="{web_wechat_tab_chat_hl: $state.includes('chat')}"></i></a>
                         </div>
-                        <div class="tab_item" ng-if="isShowReader">
-                            <a class="cbat" ui-sref="read" title="阅读"><i class="web_wechat_tab_public" ng-class="{web_wechat_tab_public_hl: $state.includes('read')}"></i></a>
+                        <div class="tab_item">
+                            <a class="chat" ui-sref="read" title="阅读"><i class="web_wechat_tab_public" ng-class="{web_wechat_tab_public_hl: $state.includes('read')}"></i></a>
                         </div>
                         <div class="tab_item no_extra">
-                            <a class="chat" ui-serf="contact" title="通讯录"><i class="web_wechat_tab_friends" ng-class="{web_wechat_tab_friends_hl: $state.includes('contact')}"></i></a>
+                            <a class="chat" ui-sref="contact" title="通讯录"><i class="web_wechat_tab_friends" ng-class="{web_wechat_tab_friends_hl: $state.includes('contact')}"></i></a>
                         </div>
                     </div>
-                    <div class="nav_view">
-                        <div class="scroll-wrapper chat_list scrollbar-dynamic" style="position: relative;">
-                            <div class="chat_list scrollbar-dynamic scroll-content scroll-scrolly_visible" id="J_NavChatScrollBody" style="margin-bottom: 0px; margin-right: 0px;">
-                                <div>
-                                    <div class="top-placeholder" style="/*height: 0px;*/"></div>
-                                    <!-- ngRepeat: chatContact in chatList track by chatContact.Username -->
-                                    <div>
-                                        <div class="chat_item slide-left">
-                                            <div class="ext">
-                                                <p class="attr"></p>
-                                            </div>
-                                            <div class="avatar">
-                                                <img class="img" src="./app/images/avatar.png">
-                                            </div>
-                                            <div class="info">
-                                                <h3 class="nickname">
-                                                    <span class="nickname_text">那一夜一十八</span>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="scroll-element scroll-x scroll-scrolly_visible">
-                                <div class="scroll-element_corner"></div>
-                                <div class="scroll-arrow scroll-arrow_less"></div>
-                                <div class="scroll-arrow scroll-arrow_more"></div>
-                                <div class="scroll-element_outer">
-                                    <div class="scroll-element_size"></div>
-                                    <div class="scroll-element_inner-wrapper">
-                                        <div class="scroll-element_inner scroll-element_track">
-                                            <div class="scroll-element_inner-bottom"></div>
-                                        </div>
-                                    </div>
-                                    <div class="scroll-bar" style="width: 89px; left: 0px;">
-                                        <div class="scroll-bar_body">
-                                            <div class="scroll-bar_body-inner"></div>
-                                        </div>
-                                        <div class="scroll-bar_bottom"></div>
-                                        <div class="scroll-bar_center"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-                <div ui-view="contentView" style="height: 100%;">
-                    <div id="chatArea" class="box chat">
-                        <div class="box_hd">
-                            <div id="chatRoomMembersWrap"></div>
-                            <div class="title_wrap">
-                                <div class="title poi">
-                                    <a class="title_name">大王叫我来巡山</a>
-                                    <i class="web_wechat_up_icon"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div ui-view="navView" id="navView"></div>
+
+                    <div class="nav_view" ng-style="{visibility:$state.current.name === 'chat' ? 'visible':'hidden',width:$state.current.name === 'chat' ? 'auto': '0'}" nav-chat-directive ></div>
+                    <div class="nav_view" ng-style="{visibility:$state.current.name === 'contact' ? 'visible':'hidden',width:$state.current.name === 'contact' ? 'auto': '0'}" nav-contact-directive ></div>
+                    <div class="nav_view" ng-style="{visibility:$state.current.name === 'read' ? 'visible':'hidden',width:$state.current.name === 'read' ? 'auto': '0'}" nav-read-directive ></div>
                 </div>
+
+                <div ui-view="contentView" style="height: 100%;"></div>
+                <div context-menu-directive></div>
             </div>
+            <p class="copyright">
+                <span>&copy; 2016 Undrizzle Inc. All Rights Reserved</span>
+                <span class="sep"></span>
+                <a href="https://login.weixin.qq.com/faq_webwx?lang=zh_CN" target="_blank">帮助</a>
+            </p>
         </div>
-        <script src="app/bower_components/angular/angular.js"></script>
-        <script src="app/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="app/js/app.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-nice-bar/dist/js/angular-nice-bar.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/Directives/navChatDirective.js"></script>
+        <script src="js/Services/stateManageService.js"></script>
     </body>
 </html>

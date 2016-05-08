@@ -8,5 +8,7 @@
   "devDependencies": {
     "electron-prebuilt": "^0.36.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }

@@ -1,3 +1,6 @@
+html {
+    height: 100%;
+}
 body {
     font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
     height: 100%;
@@ -20,11 +23,29 @@ input, textarea, button, a {
 }
 .main {
     display: block;
-    height: 100%;
+    min-height: 600px;
+    padding-top: 100px;
+    height: 80%;
+    -webkit-transition: padding .3s linear;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+@media (max-width: 1000px), (max-height: 800px) {
+    .main {
+        padding-top: 0;
+        height: 80%;
+    }
 }
 .main_inner {
+    max-width: 1000px;
+    min-width: 800px;
     height: 100%;
     margin: 0 auto;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
     overflow: hidden;
 }
 .main_inner:after {    /*在元素后面插入新的内容*/
@@ -154,15 +175,15 @@ input, textarea, button, a {
     display: block;
     text-align: center;
 }
-.web_wechat_tab_chat_h1 {
-    background: url(../images/sprite28a2f7.png) 0 -2083px;
+.web_wechat_tab_chat {
+    background: url(../images/sprite28a2f7.png) 0 -2048px;
     width: 35px;
     height: 35px;
     vertical-align: middle;
     display: inline-block;
 }
-.web_wechat_tab_chat {
-    background: url(../images/sprite28a2f7.png) 0 -2048px;
+.web_wechat_tab_chat_hl {
+    background: url(../images/sprite28a2f7.png) 0 -2083px;
     width: 35px;
     height: 35px;
     vertical-align: middle;
@@ -194,29 +215,6 @@ input, textarea, button, a {
 }
 .chat_list {
     height: 100%;
-}
-.scroll-wrapper {
-    overflow: hidden !important;
-    padding: 0 !important;
-    position: relative;
-}
-.scroll-wrapper>.scroll-content {
-    border: 0 !important;
-    box-sizing: content-box !important;
-    height: auto;
-    left: 0;
-    margin: 0;
-    max-height: none !important;
-    max-width: none !important;
-    overflow: scroll !important;
-    padding: 0;
-    position: relative !important;
-    top: 0;
-    width: auto !important;
-}
-.scroll-wrapper>.scroll-content::-webkit-scrollbar {
-    height: 0;
-    width: 0;
 }
 .chat_item {
     overflow: hidden;
@@ -360,4 +358,40 @@ input, textarea, button, a {
 .box_hd .ext a {
     text-decoration: none;
     color: #333;
+}
+.web_wechat_down_icon {
+    background: url(../images/sprite28a2f7.png) 0 -795px;
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
+    display: inline-block
+}
+.web_wechat_up_icon {
+    background: url(../images/sprite28a2f7.png) 0 -2362px;
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
+    display: inline-block
+}
+
+/*底部css*/
+.main .copyright {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #e3e3e3;
+}
+.main .copyright a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #e3e3e3;
+}
+.main .copyright .sep {
+    display: inline-block;
+    height: 12px;
+    vertical-align: middle;
+    margin: 0 10px;
+    border-right: 1px solid #e3e3e3;
 }
