@@ -374,6 +374,100 @@ input, textarea, button, a {
     display: inline-block
 }
 
+.chat .box_ft {
+    height: 180px;
+    margin-right: 19px;
+    border-top: 1px solid #d6d6d6;
+}
+.box_ft {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.chat .box_ft .toolbar {
+    height: 30px;
+    padding: 5px 17px;
+}
+.web_wechat_face {
+    background: url(../images/sprite28a2f7.png) 0 -805px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.web_wechat_screencut {
+    background: url(../images/sprite28a2f7.png) 0 -1916px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.webuploader-container {
+    position: relative;
+}
+.web_wechat_pic {
+    background: url(../images/sprite28a2f7.png) 0 -1638px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.chat .box_ft .action {
+    text-align: right;
+    margin-top: 5px;
+}
+.chat .box_ft .content .flex {
+    height: 6em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 20px;
+    outline: 0;
+    border: 0;
+    font-size: 14px;
+}
+pre {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    white-space: pre-wrap;
+    word-break: initial;
+}
+.chat .box_ft .caret_pos_helper {
+    position: absolute;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+    white-space: pre;
+}
+.chat .box_ft .desc {
+    color: #888;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 7px;
+}
+.btn_send {
+    background-color: #fff;
+    color: #222;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.btn_send:hover {
+    background-color: #f8f8f8
+}
+a.btn {
+    text-decoration: none
+}
+.btn {
+    display: inline-block;
+    border: 1px solid #c1c1c1;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 3px 20px;
+    font-size: 14px;
+}
 /*底部css*/
 .main .copyright {
     position: absolute;

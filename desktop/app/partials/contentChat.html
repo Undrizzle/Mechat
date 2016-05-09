@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <div class="box_ft"  ng-show="currentContact && !currentContact.isReadOnlyContact()">
+    <div class="box_ft" ng-controller="chatSenderController">
         <div class="toolbar" id="toolbar">
             <a class="web_wechat_face" ng-click="showEmojiPanel($event)" href="javascript:;" title="表情"></a>
             <a mm-action-track track-type="['click']" track-opt="{'target': '截图'}" class="web_wechat_screencut" ng-hide="noflash" ng-click="screenShot()" href="javascript:;" title="截屏"></a>
@@ -41,7 +41,7 @@
             <span class="caret_pos_helper" id="caretPosHelper"></span>
         </div>
         <div class="action">
-            <span ng-if="!isMacOS" class="desc">按下Ctrl+Enter换行</span>
+            <span class="desc">按下Ctrl+Enter换行</span>
             <span ng-if="isMacOS" class="desc">按下Cmd+Enter换行</span>
             <a class="btn btn_send" href="javascript:;" ng-click="sendTextMessage()">发送</a>
         </div>
