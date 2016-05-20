@@ -5884,11 +5884,11 @@ vjs.ErrorDisplay.prototype.update = function(){
 };
 /**
  * @fileoverview Media Technology Controller - Base class for media playback
- * technology controllers like Flash and HTML5
+ * technology Controllers like Flash and HTML5
  */
 
 /**
- * Base class for media (HTML5 Video, Flash) controllers
+ * Base class for media (HTML5 Video, Flash) Controllers
  * @param {vjs.Player|Object} player  Central player instance
  * @param {Object=} options Options object
  * @constructor

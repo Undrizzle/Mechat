@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <!--<script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script> -->
     </head>
-    <body>
+    <body ng-controller="appController">
         <div class="main">
             <div class="main_inner">
                 <div class="panel">
@@ -20,7 +20,9 @@
                         <div class="info">
                             <h3 class="nickname">
                                 <span class="display_name">不觉细雨</span>
-                                <a class="opt" href="javascript:;"><i class="web_wechat_add"></i></a>
+                                <a class="opt" href="javascript:;" ng-click="toggleSystemMenu()">
+                                    <i class="web_wechat_add"></i>
+                                </a>
                             </h3>
                         </div>
                     </div>
@@ -61,6 +63,9 @@
         <script src="bower_components/angular-nice-bar/dist/js/angular-nice-bar.js"></script>
         <script src="js/app.js"></script>
         <script src="js/Directives/navChatDirective.js"></script>
+        <script src="js/Directives/mmpopDirective.js"></script>
         <script src="js/Services/stateManageService.js"></script>
+        <script src="js/Controllers/chatSenderController.js"></script>
+        <script src="js/Controllers/appController.js"></script>
     </body>
 </html>
