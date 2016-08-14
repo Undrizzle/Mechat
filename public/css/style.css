@@ -21,7 +21,6 @@ html, input {
 }
 
 html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -29,6 +28,15 @@ html, body {
 ul {
     list-style: none;
     word-wrap: break-word;  /*自动换行*/
+}
+
+input:focus {
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Pages */
@@ -160,6 +168,7 @@ ul {
 
 .header {
     background: rgb(71,193,168);
+    color: #fff;
 }
 
 .fr {
@@ -437,4 +446,92 @@ ul {
     right: -10px;
     border-right: 10px solid transparent;
     border-bottom: 10px solid #f1effc;
+}
+
+/* 留言页面 */
+.pull-left {
+    float: left;
+}
+
+.header .title {
+    margin-top: 16px;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.h460 {
+    height: 460px;
+}
+
+.ticket-form {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #f2f3f5;
+}
+
+.step-title {
+    margin: 16px;
+    font-size: 12px;
+    color: #666;
+    word-break: break-all;
+    line-height: 1.8;
+}
+
+.form-group .group-title {
+    margin: 16px 0 6px 16px;
+    color: #444;
+    font-size: 12px;
+}
+
+.form-group .group-content {
+    background-color: #fff;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.04),0 -1px 0 0 rgba(0,0,0,.04);
+}
+
+.form-group .group-content input[type=text] {
+    width: 100%;
+    height: auto;
+    padding: 12px 16px;
+    border: none;
+}
+
+.form-group .group-title>span {
+    margin-left: 4px;
+    color: #ff5c5e;
+}
+
+.form-group .group-content textarea {
+    display: block;
+    width: 100%;
+    height: 90px;
+    padding: 12px 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    resize: none;
+    outline: 0;
+    background-color: #fff;
+    border: none;
+    word-break: break-all;
+    font-size: 12px;
+    -webkit-appearance: none;
+}
+
+.btn-group {
+    width: 100%;
+    margin: 24px 0;
+    padding: 0 16px;
+}
+
+.btn-group #ticketSubmit {
+    display: block;
+    width: 100%;
+    height: 44px;
+    border-radius: 5px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(71,193,168);
+    color: #fff;
 }

@@ -1,0 +1,54 @@
+doctype html
+html(lang="zh")
+    head
+        meta(charset='utf-8')
+        title= 在线客服
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(href='bower_components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet', media='screen')
+        link(href='css/style.css', rel='stylesheet')
+    body
+        #mechat
+            #header
+                div(class=['header','h60'])
+                    div(class=['fr','w90','tr'])
+                        a(class='oper-btn' title='最小化窗口')
+                            span(class='glyphicon glyphicon-minus')
+                    div(class='pull-left')
+                        div(class='title') 给我们留言
+            #wrap
+                div(class=['wrap','h460','flow'])
+                    div(class='ticket-form')
+                        div(class='step-title') 关于Undrizzle的问题，请留言给我们，我们会在第一时间回复。
+                        div(class='form-group')
+                            div(class='group-title') 手机
+                            div(class='group-content')
+                                input(id='ticketTel' type='text' placeholder='请输入')
+                        div(class='form-group')
+                            div(class='group-title') 邮箱
+                            div(class='group-content')
+                                input(id='ticketEmail' type='text' placeholder='请输入')
+                        div(class='form-group')
+                            div(class='group-title') 留言内容
+                                span *
+                            div(class='group-content')
+                                textarea(id='ticketContent' placeholder='请输入留言内容')
+                        div(class='btn-group')
+                            a(id='ticketSubmit') 提交
+
+    script(src='/socket.io/socket.io.js')
+    script(src='http://code.jquery.com/jquery-1.11.1.js')
+    script.
+        var socket = io();
+        function sendMsg() {
+            if($('#m').val() == '' || $('#m').val() == null) {
+                return;
+            } else {
+                socket.emit('chat message', $('#m').val());
+                $('#m').val('');
+            }
+        }
+        socket.on('chat message', function(msg) {
+            $('#messages').append(($('<li>').addClass('msg cli-msg fr').append(($('<div>').text(msg)).addClass('bgCli msg-con fr').prepend($('<i>').addClass('arrow-br')))));
+            $('.wrap').scrollTop( $('.wrap')[0].scrollHeight );
+            //($('<div>').text(msg)).addClass('bgCli msg-con fr').prepend($('<i>').addClass('arrow-br'))
+        });
