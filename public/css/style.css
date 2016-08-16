@@ -159,11 +159,14 @@ a:hover {
 
 #mechat {
     width: 300px;
-    margin-top: 100px;
-    margin-left: 500px;
+    position: fixed;
+    right: 80px;
+    bottom: 0;
+    z-index: 1;
     border: 1px solid rgb(71, 193, 168);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    display: none;
 }
 
 .header {
@@ -534,4 +537,53 @@ a:hover {
     font-size: 15px;
     background-color: rgb(71,193,168);
     color: #fff;
+}
+
+.mechat-pcbin {
+    width: 60px;
+    height: 60px;
+    border-radius: 25px;
+    bottom: 20px;
+    right: 50px;
+    position: fixed;
+    background: #28C4F7;
+    cursor: pointer;
+    overflow: hidden;
+    display: block;
+}
+
+.mechat-pcbin:hover {
+    background: #898c91;
+}
+
+.mechat-pcbin:hover>span {
+    margin-top: 9px;
+    height: auto;
+}
+
+.mechat-pcbin>span {
+    width: 30px;
+    height: 25px;
+    display: inline-block;
+    color: #fff;
+    margin-left: 16px;
+    margin-top: 9px;
+}
+
+.show {
+    display: block;
+}
+
+.error {
+    background-color: #ffffcc;
+    color: #ff404b;
+    z-index: 1;
+    width: 298px;
+    height: 42px;
+    position: fixed;
+    top: 16px;
+    display: none;
+    font-size: 14px;
+    line-height: 42px;
+    text-align: center;
 }

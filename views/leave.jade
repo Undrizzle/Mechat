@@ -11,7 +11,7 @@ html(lang="zh")
             #header
                 div(class=['header','h60'])
                     div(class=['fr','w90','tr'])
-                        a(class='oper-btn' title='最小化窗口')
+                        a(class='oper-btn' title='最小化窗口' onclick='mechatClose()')
                             span(class='glyphicon glyphicon-minus')
                     div(class='pull-left')
                         div(class='title') 给我们留言
@@ -33,22 +33,91 @@ html(lang="zh")
                             div(class='group-content')
                                 textarea(id='ticketContent' placeholder='请输入留言内容')
                         div(class='btn-group')
-                            a(id='ticketSubmit') 提交
+                            a(id='ticketSubmit' onclick='submitMessage()') 提交
+                        div(class='error')
+        div(class='mechat-pcbin' onclick='mechatClick()')
+            span(id='MECHAT-BIN') 寻求帮助
 
-    script(src='/socket.io/socket.io.js')
     script(src='http://code.jquery.com/jquery-1.11.1.js')
+    script(src='js/jquery.nicescroll.js')
     script.
-        var socket = io();
-        function sendMsg() {
-            if($('#m').val() == '' || $('#m').val() == null) {
-                return;
-            } else {
-                socket.emit('chat message', $('#m').val());
-                $('#m').val('');
-            }
-        }
-        socket.on('chat message', function(msg) {
-            $('#messages').append(($('<li>').addClass('msg cli-msg fr').append(($('<div>').text(msg)).addClass('bgCli msg-con fr').prepend($('<i>').addClass('arrow-br')))));
-            $('.wrap').scrollTop( $('.wrap')[0].scrollHeight );
-            //($('<div>').text(msg)).addClass('bgCli msg-con fr').prepend($('<i>').addClass('arrow-br'))
+        $(function () {
+            $('#ticketContent').niceScroll({
+                cursorcolor: "#ccc",
+                cursoropacitymax: 1,
+                touchbehavior: false,
+                cursorwidth: "5px",
+                cursorborder: "0",
+                cursorborderradius: "5px",
+                autohidemode: false
+            });
         });
+
+        function mechatClick() {
+            $('#mechat').addClass('show');
+        }
+
+        function mechatClose() {
+            $('#mechat').removeClass('show');
+        }
+
+        function submitMessage() {
+            if ($('#ticketTel').val() == '' &&  $('#ticketEmail').val() == '') {
+                $('.error').html('手机和邮箱中必须有一个正确的联系方式');
+                $('.error').addClass('show');
+                setTimeout("$('.error').removeClass('show')", 2000);
+                return;
+            }
+
+            if ($('#ticketTel').val() != '') {
+                var phone = $('#ticketTel').val();
+                if (!(/^1[3|4|5|7|8]\d{9}$/.test(phone))) {
+                    $('.error').html('手机号码不正确，请重填');
+                    $('.error').addClass('show');
+                    setTimeout("$('.error').removeClass('show')", 2000);
+                    return;
+                }
+            }
+
+            if ($('#ticketEmail').val() != '') {
+                var email = $('#ticketEmail').val();
+                if(!(/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/.test(email))) {
+                    $('.error').html('邮箱格式不正确，请重填');
+                    $('.error').addClass('show');
+                    setTimeout("$('.error').removeClass('show')", 2000);
+                    return;
+                }
+            }
+
+            if ($('#ticketContent').val() == '') {
+                $('.error').html('留言内容不能为空哦');
+                $('.error').addClass('show');
+                setTimeout("$('.error').removeClass('show')", 2000);
+                return;
+            }
+
+            if ($('#ticketContent').val().length > 500) {
+                $('.error').html('留言内容不能超过500个汉字');
+                $('.error').addClass('show');
+                setTimeout("$('.error').removeClass('show')", 2000);
+                return;
+            }
+
+            $.ajax({
+                type: "post",
+                url: "/mechat/message",
+                timeout: 5000,
+                data: "phone=" + $('#ticketTelk').val() + "&email=" + $('#ticketEmail').val() + "&message=" + $('#ticketContent').val(),
+                success: function(data) {
+                    if(data) {
+                        $('.error').html('留言成功^_^');
+                        $('.error').addClass('show');
+                        setTimeout("$('.error').removeClass('show')", 2000);
+                    } else {
+                        $('.error').html('留言失败-_-!');
+                        $('.error').addClass('show');
+                        setTimeout("$('.error').removeClass('show')", 2000);
+                    }
+            }
+            })
+        }
