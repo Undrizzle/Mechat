@@ -39,7 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //路由
 app.use('/', routes);
 
-
 //passport配置
 var Account = require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));

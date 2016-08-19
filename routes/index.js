@@ -1,8 +1,11 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var passport = require('passport');
 var Account = require('../models/account');
+var Message = require('../models/message');
 var router = express.Router();
 
+var jsonParser = bodyParser.json();
 
 router.get('/', function (req, res) {
     res.render('index', { user : req.user });
@@ -59,6 +62,17 @@ router.get('/logout', function(req, res, next) {
 
 router.get('/ping', function(req, res){
     res.status(200).send("pong!");
+});
+
+router.post('/mechat/message', jsonParser, function(req, res) {
+    var message = new Message(req.body);
+    message.save(function (err, message) {
+        if (err)
+            res.send('1');
+        else
+            res.status(200).send('0');
+    })
+
 });
 
 module.exports = router;

@@ -106,10 +106,11 @@ html(lang="zh")
             $.ajax({
                 type: "post",
                 url: "/mechat/message",
+                dataType: 'json',
                 timeout: 5000,
-                data: "phone=" + $('#ticketTelk').val() + "&email=" + $('#ticketEmail').val() + "&message=" + $('#ticketContent').val(),
-                success: function(data) {
-                    if(data) {
+                data: "phone=" + $('#ticketTel').val() + "&email=" + $('#ticketEmail').val() + "&message=" + $('#ticketContent').val(),
+                success: function(msg) {
+                    if(msg == '0') {
                         $('.error').html('留言成功^_^');
                         $('.error').addClass('show');
                         setTimeout("$('.error').removeClass('show')", 2000);
