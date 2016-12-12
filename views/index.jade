@@ -12,10 +12,10 @@ html(lang="zh")
                 div(class=['header','h60'])
                     div(class=['fr','w90','tr'])
                         a(class='oper-btn' title='开/关 声音')
-                            span(class='glyphicon glyphicon-volume-up')
+                            span(id='volume' class='glyphicon glyphicon-volume-up' onclick='changeVoice()')
                         a(class='oper-btn' title='最大化窗口')
                             span(class='glyphicon glyphicon-resize-full')
-                        a(class='oper-btn' title='最小化窗口')
+                        a(class='oper-btn' title='最小化窗口' onclick='mechatClose()')
                             span(class='glyphicon glyphicon-minus')
                     .operator
                         img(src='img/avatar.png' class=['head-md','fl'])
@@ -44,9 +44,13 @@ html(lang="zh")
                             span(class='glyphicon glyphicon-picture')
                         input(type='button' class='btn send-btn' value='发送' onclick='sendMsg()')
 
+        div(class='mechat-pcbin' onclick='mechatClick()')
+            span(id='MECHAT-BIN') 寻求帮助
+
     script(src='/socket.io/socket.io.js')
     script(src='http://code.jquery.com/jquery-1.11.1.js')
     script.
+        var volume = true;
         var socket = io();
         function sendMsg() {
             if($('#m').val() == '' || $('#m').val() == null) {
@@ -61,3 +65,22 @@ html(lang="zh")
         $('.wrap').scrollTop( $('.wrap')[0].scrollHeight );
             //($('<div>').text(msg)).addClass('bgCli msg-con fr').prepend($('<i>').addClass('arrow-br'))
         });
+
+        function mechatClick() {
+            $('#mechat').addClass('show');
+        }
+
+        function mechatClose() {
+            $('#mechat').removeClass('show');
+        }
+
+        function changeVoice() {
+            volume = !volume
+            if (volume) {
+                $('#volume').removeClass('glyphicon-volume-off');
+                $('#volume').addClass('glyphicon-volume-up');
+            } else {
+                $('#volume').removeClass('glyphicon-volume-up');
+                $('#volume').addClass('glyphicon-volume-off');
+            }
+        }

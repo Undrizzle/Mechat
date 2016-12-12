@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var Account = require('../models/account');
 var Message = require('../models/message');
+var Suggest = require('../models/suggest');
 var nodemailer = require('nodemailer');
 var router = express.Router();
 
@@ -44,15 +45,6 @@ router.get('/login', function(req, res) {
     res.render('login', { user : req.user });
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res, next) {
-    req.session.save(function (err) {
-        if (err) {
-            return next(err);
-        }
-        res.redirect('/');
-    });
-});
-
 router.get('/logout', function(req, res, next) {
     req.logout();
     req.session.save(function (err) {
@@ -63,9 +55,25 @@ router.get('/logout', function(req, res, next) {
     });
 });
 
-router.get('/ping', function(req, res){
-    res.status(200).send("pong!");
-});
+router.post('/sess', jsonParser, function(req, res) {
+  console.log('req.body');
+  res.status(200).send('ok');
+})
+
+router.post('/suggest', jsonParser, function(req, res) {
+  console.log(req.body);
+  var suggests = new Suggest;
+  suggests.username = req.body.username;
+  suggests.advise = req.body.advise;
+  suggests.submit = new Date;
+  suggests.save(function (err, message) {
+    if (err)
+      res.send('1');
+    else {
+      res.status(200).send('0');
+    }
+  })
+})
 
 router.post('/mechat/message', jsonParser, function(req, res) {
     var message = new Message(req.body);

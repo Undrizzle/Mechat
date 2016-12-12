@@ -1,4 +1,5 @@
 var express = require('express');
+var cors = require('cors');
 var app = express();
 var http = require('http').Server(app);
 var path = require('path');
@@ -15,6 +16,9 @@ var LocalStrategy = require('passport-local').Strategy;
 
 //连接数据库
 mongoose.connect('mongodb://localhost/passport_example');
+
+//跨域配置
+app.use(cors());
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -38,6 +42,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //路由
 app.use('/', routes);
+
+
+
+/*
+app.get('/sess', function(req, res, next) {
+  res.json({msg: 'This is CROS-enabled for all origins!'});
+}); */
 
 //passport配置
 var Account = require('./models/account');
