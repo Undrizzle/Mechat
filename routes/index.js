@@ -4,6 +4,7 @@ var passport = require('passport');
 var Account = require('../models/account');
 var Message = require('../models/message');
 var Suggest = require('../models/suggest');
+var User = require('../models/user');
 var nodemailer = require('nodemailer');
 var router = express.Router();
 
@@ -58,6 +59,17 @@ router.get('/logout', function(req, res, next) {
 router.post('/sess', jsonParser, function(req, res) {
   console.log('req.body');
   res.status(200).send('ok');
+})
+
+router.post('/contact', jsonParser, function(req, res) {
+  var id = req.body.id;   //id = undrizzle
+  User.findOne({'id': id}, function (err, user) {
+    if (err)
+      res.send('err contact');
+    else {
+      res.status(200).send(user.friends)
+    }
+  })
 })
 
 router.post('/suggest', jsonParser, function(req, res) {
