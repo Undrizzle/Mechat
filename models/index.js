@@ -8,8 +8,11 @@ user.id = 'undrizzle';
 user.username = '不觉细雨';
 user.avatar = '//localhost:3000/img/user/bu.jpg';
 user.sex = 'male';
-user.location = '浙江 杭州';
+user.region = '浙江 杭州';
 user.signature = '母的鸡遇到公的鸡恰恰好生小鸡';
+user.email = '357419894@qq.com';
+user.hashedPassword = 'djjjjjjj';
+user.salt = '';
 var love1 = {
   id: 'NianNinne',
   username: 'NianNinne',

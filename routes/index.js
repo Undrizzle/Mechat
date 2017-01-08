@@ -24,7 +24,35 @@ router.get('/leave', function(req, res) {
     res.render('leave', { user: req.user });
 });
 
-router.post('/register', function(req, res, next) {
+router.get('/login', function(req, res) {
+    res.render('login', { user : req.user });
+});
+
+router.get('/logout', function(req, res, next) {
+    req.logout();
+    req.session.save(function (err) {
+        if (err) {
+            return next(err);
+        }
+        res.redirect('/');
+    });
+});
+
+router.post('/register', function(req, res) {
+    console.log(req.body);
+    var user = new User;
+    user.id = req.body.id;
+    user.email = req.body.email;
+    user.password = req.body.password;
+    user.save(function (err) {
+      if (err) {
+        res.status(400).send({ error: err });
+      } else {
+        res.json(req.body);
+      }
+    })
+
+    /*
     Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
         if (err) {
             return res.render("register", {info: "Sorry. That username already exists. Try again."});
@@ -38,22 +66,7 @@ router.post('/register', function(req, res, next) {
                 res.redirect('/');
             });
         });
-    });
-});
-
-
-router.get('/login', function(req, res) {
-    res.render('login', { user : req.user });
-});
-
-router.get('/logout', function(req, res, next) {
-    req.logout();
-    req.session.save(function (err) {
-        if (err) {
-            return next(err);
-        }
-        res.redirect('/');
-    });
+    }); */
 });
 
 router.post('/sess', jsonParser, function(req, res) {
