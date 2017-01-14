@@ -20,7 +20,6 @@ var User = new Schema({
 //虚拟属性
 User.virtual('password')
   .set(function(password) {
-    console.log('2');
     this._password = password;
     this.salt = crypto.randomBytes(16).toString('base64');
     var salt = new Buffer(this.salt, 'base64');
@@ -31,7 +30,6 @@ User.virtual('password')
   });
 
 User.path('email').validate(function(value, respond) {
-  console.log('3');
   var self = this;
   this.constructor.findOne({email: value}, function(err, user) {
     if(err) throw err;
@@ -44,11 +42,11 @@ User.path('email').validate(function(value, respond) {
 }, '邮箱已经被使用');
 
 User.path('id').validate(function(value, respond) {
-  mongoose.models["User"].findOne({id: value}, function(err, user) {
-    console.log('1');
+  var self = this;
+  this.constructor.findOne({id: value}, function(err, user) {
     if (err) throw err;
     if (user) return respond(false);
-    response(true);
+    respond(true);
   });
 }, '用户名已经存在');
 
