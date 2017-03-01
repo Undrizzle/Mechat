@@ -40,7 +40,7 @@ html(lang="zh")
                     div(class=['ft-btns','clearfix'])
                         a(class='pa' title='表情')
                             span(class='glyphicon glyphicon-send')
-                        a(class=['ml5','pa'] title='上传图片')
+                        a(class=['ml5', 'pa'] title='上传图片')
                             span(class='glyphicon glyphicon-picture')
                         input(type='button' class='btn send-btn' value='发送' onclick='sendMsg()')
 
@@ -49,6 +49,10 @@ html(lang="zh")
 
     script(src='/socket.io/socket.io.js')
     script(src='http://code.jquery.com/jquery-1.11.1.js')
+    script(src='bower_components/jQuery-File-Upload-9.17.0/js/vendor/jquery.ui.widget.js')
+    script(src='/bower_components/jQuery-File-Upload-9.17.0/js/jquery.iframe-transport.js')
+    script(src='bower_components/jQuery-File-Upload-9.17.0/js/jquery.fileupload.js')
+    script(src='bower_components/jQuery-File-Upload-9.17.0/js/cors/jquery.xdr-transport.js')
     script.
         var volume = true;
         var socket = io();

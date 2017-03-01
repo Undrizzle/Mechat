@@ -587,3 +587,7 @@ a:hover {
     line-height: 42px;
     text-align: center;
 }
+
+.upload {
+    visibility: hidden;
+}
